@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix FC</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/ab13e405bd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/phoenixFc-removebg-preview.png" alt="Phoenix FC Logo">
+        </a>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="matches.html">Matches</a></li>
+        <li><a href="squad.html">Squad</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+
+    <button id="showFormBtn">Become a Member</button>
+
+    <!-- Hamburger -->
+    <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+</nav>
+
+<!-- Mobile Sidebar -->
+<div class="mobile-menu" id="mobileMenu">
+    <button class="close-mobile" id="closeMobile">&times;</button>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="matches.html">Matches</a></li>
+        <li><a href="squad.html">Squad</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button id="showFormBtnMobile" class="mobile-btn">Become a Member</button>
+</div>
+
+<!-- Overlay -->
+<div id="overlay"></div>
+
+<!-- Membership Popup -->
+<div class="form1" id="membershipPopup">
+    <button class="close-btn" id="closePopup">X</button>
+    <h2>Join Phoenix FC</h2>
+
+    <form id="contact-form" action="https://formspree.io/f/xpwkzqql" method="POST" onsubmit="return validateForm()">
+        <!-- Name -->
+        <div class="input-group">
+            <input type="text" name="name" id="contact-name" placeholder="Enter your name" onkeyup="validateName()" required>
+            <span class="checkmark" id="name-check">✅</span>
+        </div>
+        <span class="error" id="name-error"></span>
+
+        <!-- Phone -->
+        <div class="input-group">
+            <input type="tel" name="phone" id="contact-phone" placeholder="12345678901" onkeyup="validatePhone()" required>
+            <span class="checkmark" id="phone-check">✅</span>
+        </div>
+        <span class="error" id="phone-error"></span>
+
+        <!-- Email -->
+        <div class="input-group">
+            <input type="email" name="email" id="contact-email" placeholder="Enter Email" onkeyup="validateEmail()" required>
+            <span class="checkmark" id="email-check">✅</span>
+        </div>
+        <span class="error" id="email-error"></span>
+
+        <!-- Position -->
+        <div class="input-group select-wrapper">
+            <select id="position" name="position" required onchange="validatePosition()">
+                <option value="">Select Position</option>
+                <option>Goalkeeper</option>
+                <option>Defender</option>
+                <option>Midfielder</option>
+                <option>Forward</option>
+            </select>
+            <span class="checkmark" id="position-check">✅</span>
+        </div>
+        <span class="error" id="position-error"></span>
+
+        <!-- Message -->
+        <div class="input-group">
+            <textarea name="message" id="contact-message" placeholder="Enter your message" onkeyup="validateMessage()" required></textarea>
+            <span class="checkmark" id="message-check">✅</span>
+        </div>
+        <span class="error" id="message-error"></span>
+
+        <button type="submit" id="submitBtn">Submit</button>
+        <span id="submit-error"></span>
+    </form>
+</div>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+        <div class="row1">
+            <h1>Rise with Phoenix FC</h1>
+            <p>Where passion meets ambition. Join us, play hard, and soar to glory</p>
+        </div>
+        <div class="image-card-section">
+            <div class="image-card">
+                <img src="images/training.jpeg" alt="Training">
+                <h4>Team Spirit</h4>
+            </div>
+            <div class="image-card">
+                <img src="images/WhatsApp Image 2025-11-14 at 2.38.50 AM.jpeg" alt="Match Day">
+                <h4>Match Day</h4>
+            </div>
+            <div class="image-card">
+                <img src="images/relaxtion.jpeg" alt="Youth Academy">
+                <h4>Fun Time</h4>
+            </div>
+            <div class="image-card">
+                <img src="images/train.jpeg" alt="Training">
+                <h4>Training Sessions</h4>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRAINING SECTION -->
+<section class="section">
+    <section class="training-section">
+        <h2>Training Schedule</h2>
+        <div class="training-times">
+            <p><strong>Monday:</strong> 5:00 PM – 7:00 PM</p>
+            <p><strong>Tuesday:</strong> 5:00 PM – 7:00 PM</p>
+            <p><strong>Wednesday:</strong> 5:00 PM – 7:00 PM</p>
+            <p><strong>Thursday:</strong> 5:00 PM – 7:00 PM</p>
+            <p><strong>Saturday:</strong> 7:00 AM – 10:00 AM</p>
+        </div>
+        <h3 class="calendar-title">Monthly Training Calendar</h3>
+        <div id="calendar" class="calendar"></div>
+        <div id="trainingInfo" class="training-info"></div>
+    </section>
+</section>
+
+<!-- SQUAD SECTION -->
+<section class="sec">
+    <section class="squad-section">
+        <h2> Squad List</h2>
+        <div class="squad-grid">
+            <!-- Player Cards (same as your 20 players, omitted here for brevity; copy your previous 20 player cards) -->
+             <!-- 1 -->
+             <div class="player-card">
+                <div class="player-number">#1</div>
+                <h3>Bright John</h3>
+                <span>Goalkeeper</span>
+            </div>
+    
+            <!-- 2 -->
+            <div class="player-card">
+                <div class="player-number">#2</div>
+                <h3>Victor Ade</h3>
+                <span>Right Back</span>
+            </div>
+    
+            <!-- 3 -->
+            <div class="player-card">
+                <div class="player-number">#3</div>
+                <h3>Emmanuel Kane</h3>
+                <span>Left Back</span>
+            </div>
+    
+            <!-- 4 -->
+            <div class="player-card">
+                <div class="player-number">#4</div>
+                <h3>Chris Brown</h3>
+                <span>Centre Back</span>
+            </div>
+    
+            <!-- 5 -->
+            <div class="player-card">
+                <div class="player-number">#5</div>
+                <h3>Daniel Cole</h3>
+                <span>Centre Back</span>
+            </div>
+    
+            <!-- 6 -->
+            <div class="player-card">
+                <div class="player-number">#6</div>
+                <h3>Kelvin James</h3>
+                <span>Defensive Midfielder</span>
+            </div>
+    
+            <!-- 7 -->
+            <div class="player-card">
+                <div class="player-number">#7</div>
+                <h3>David West</h3>
+                <span>Winger</span>
+            </div>
+    
+            <!-- 8 -->
+            <div class="player-card">
+                <div class="player-number">#8</div>
+                <h3>Paul Henry</h3>
+                <span>Midfielder</span>
+            </div>
+    
+            <!-- 9 -->
+            <div class="player-card">
+                <div class="player-number">#9</div>
+                <h3>John Samuel</h3>
+                <span>Striker</span>
+            </div>
+    
+            <!-- 10 -->
+            <div class="player-card">
+                <div class="player-number">#10</div>
+                <h3>Michael Stone</h3>
+                <span>Attacking Midfielder</span>
+            </div>
+    
+            <!-- 11 -->
+            <div class="player-card">
+                <div class="player-number">#11</div>
+                <h3>Samuel Leo</h3>
+                <span>Winger</span>
+            </div>
+    
+            <!-- 12 -->
+            <div class="player-card">
+                <div class="player-number">#12</div>
+                <h3>Henry Musa</h3>
+                <span>Midfielder</span>
+            </div>
+    
+            <!-- 13 -->
+            <div class="player-card">
+                <div class="player-number">#13</div>
+                <h3>Tunde Ali</h3>
+                <span>Centre Back</span>
+            </div>
+    
+            <!-- 14 -->
+            <div class="player-card">
+                <div class="player-number">#14</div>
+                <h3>Patrick Williams</h3>
+                <span>Midfielder</span>
+            </div>
+    
+            <!-- 15 -->
+            <div class="player-card">
+                <div class="player-number">#15</div>
+                <h3>Joseph Mark</h3>
+                <span>Right Wing</span>
+            </div>
+    
+            <!-- 16 -->
+            <div class="player-card">
+                <div class="player-number">#16</div>
+                <h3>Elijah Duke</h3>
+                <span>Goalkeeper</span>
+            </div>
+    
+            <!-- 17 -->
+            <div class="player-card">
+                <div class="player-number">#17</div>
+                <h3>Collins John</h3>
+                <span>Midfielder</span>
+            </div>
+    
+            <!-- 18 -->
+            <div class="player-card">
+                <div class="player-number">#18</div>
+                <h3>Shola Peter</h3>
+                <span>Striker</span>
+            </div>
+    
+            <!-- 19 -->
+            <div class="player-card">
+                <div class="player-number">#19</div>
+                <h3>Alex George</h3>
+                <span>Left Wing</span>
+            </div>
+    
+            <!-- 20 -->
+            <div class="player-card">
+                <div class="player-number">#20</div>
+                <h3>Fred Adams</h3>
+                <span>Defender</span>
+            </div>
+
+            <div class="player-card">
+                <div class="player-number">#20</div>
+                <h3>Fred Adams</h3>
+                <span>Defender</span>
+            </div>
+    
+        </div>
+    </section>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="sec">
+    <section class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-details">
+                <h3>Get In Touch</h3>
+                <p><strong>Address:</strong><br>phoenixFc training ground, Abuja, Nigeria</p>
+                <p><strong>Phone:</strong><br>+234 812 345 6789</p>
+                <p><strong>Email:</strong><br>phoenixfc@gmail.com</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+                <a class="whatsapp-btn" href="https://wa.me/2348123456789" target="_blank">Chat on WhatsApp</a>
+            </div>
+        </div>
+        <div class="map-box">
+            <iframe id="contactMap"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2046.3296419623637!2d7.350485520051891!3d9.102603556106736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e77a02fc61949%3A0xa636f9f9e770ec7c!2sBelham%20Equestrian%20Centre!5e0!3m2!1sen!2sng!4v1763216135608!5m2!1sen!2sng"
+                class="map-small" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-about">
+            <h3>About Our Club</h3>
+            <p>We are a community football club dedicated to developing young talent, promoting teamwork, and building future champions.</p>
+        </div>
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#matches">Matches</a></li>
+                <li><a href="#squad">Squad</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p><strong>Email:</strong> phoenixfc@gmail.com</p>
+            <p><strong>Phone:</strong> +234 234 567 0000</p>
+            <p><strong>Address:</strong> Abuja, Nigeria</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Phoenix FC. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
