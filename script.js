@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
         dayBox.textContent = day;
 
         dayBox.addEventListener("click", () => {
-            const weekday = new Date(2025, 0, day).getDay(); 
+            const weekday = new Date(2025, 10, day).getDay(); 
             const time = trainingTimes[weekday];
 
             if (time) {
@@ -138,3 +138,7 @@ const closeMobile = document.querySelector(".close-mobile");
 
 hamburger.addEventListener("click", () => { mobileMenu.style.display = "flex"; });
 closeMobile.addEventListener("click", () => { mobileMenu.style.display = "none"; });
+
+
+
+
