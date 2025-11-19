@@ -127,6 +127,39 @@
     z-index: 11;
 }
 
+@media (max-width: 768px){
+    .form1 {
+        position: fixed;
+        top: 50%; left: 60%;
+        transform: translate(-50%, -50%);
+        width: 90%; max-width: 400px;
+        background: url(images/phoenixFc-removebg-preview.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding: 25px;
+        border-radius: 12px; 
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        display: none;
+        z-index: 11;
+    }
+    #contact-form button {
+        display: block;      
+        margin: 0 ;      
+        text-align: left;
+        font-size: 16px;
+        font-weight: bold;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.2s ease;
+    }
+   
+   
+}
+
 .close-btn {
     background: #a35f5f;
     color: rgb(23, 21, 21);
@@ -177,7 +210,7 @@ h2 { text-align: center; color: #002366; }
 #contact-form button {
     display: block;      
     margin: 0 auto;      
-    padding: 10px 200px;
+    padding: 10px 125px;
     font-size: 16px;
     font-weight: bold;
     background: #007bff;
@@ -298,12 +331,12 @@ h4 { text-align: center; }
         
         .image-card {
     flex: 0 0 100vw;   /* ONE card per screen */
-            max-width: 100%;
+            max-width: 200%;
             background: #aec7e7;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            scroll-snap-align: start;
+            scroll-snap-align: 0 0 100vw;
             transition: transform 0.3s ease;
         }
     
