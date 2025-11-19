@@ -263,6 +263,8 @@ button.loading { opacity: 0.6; pointer-events: none; }
 
 .row1 h1{
     padding-left:65px ;
+    padding-top: 12px;
+    padding-bottom: 6px;
 }
 
 @media (max-width: 768px){
@@ -275,6 +277,7 @@ button.loading { opacity: 0.6; pointer-events: none; }
     .row1 h1{
         padding-left:65px ;
         font-size: 20px;
+        padding-top: 6px;
     }
    .row1 p{
     font-size: 12px;
@@ -314,6 +317,16 @@ h4 { text-align: center; }
 
 @media (max-width: 768px) {
     @media (max-width: 768px){
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 72vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
         .image-card-section {
             display: flex;
             gap: 20px;
@@ -330,24 +343,25 @@ h4 { text-align: center; }
         }
         
         .image-card {
-    flex: 0 0 100vw;   /* ONE card per screen */
-            max-width: 200%;
+            flex: 0 0 100vw;   /* ONE card per screen */
+            max-width: 100%;
+            
             background: #aec7e7;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            scroll-snap-align: 0 0 100vw;
+            scroll-snap-align: start;
             transition: transform 0.3s ease;
         }
     
         .image-card img { 
             width: 100%; 
-            height: 430px; 
+            height: 420px; 
             object-fit: cover;  
             display: block;
         }
     }
-    h4 { text-align: center;}
+    h4 { text-align: center; border-radius: 12px; }
     
     
 }
