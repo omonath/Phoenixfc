@@ -104,25 +104,35 @@ document.addEventListener("DOMContentLoaded", function () {
         6: "Saturday — 7:00 AM to 10:00 AM"
     };
 
-    for (let day = 1; day <= 30; day++) {
-        const dayBox = document.createElement("div");
-        dayBox.textContent = day;
+    function loadCalendar() {
+        calendar.innerHTML = ""; // clear previous month
 
-        dayBox.addEventListener("click", () => {
-            const weekday = new Date(2025, 10, day).getDay(); 
-            const time = trainingTimes[weekday];
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = now.getMonth(); // current month
+       
+        // Get number of days in the current month
+        const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-            if (time) {
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dayBox = document.createElement("div");
+            dayBox.textContent = day;
+
+            dayBox.addEventListener("click", () => {
+                const weekday = new Date(year, month, day).getDay();
+                const time = trainingTimes[weekday];
+
                 trainingInfo.style.display = "block";
-                trainingInfo.textContent = `Training on this day: ${time}`;
-            } else {
-                trainingInfo.style.display = "block";
-                trainingInfo.textContent = "No training on this day.";
-            }
-        });
+                trainingInfo.textContent = time
+                    ? `Training on this day: ${time}`
+                    : "No training on this day.";
+            });
 
-        calendar.appendChild(dayBox);
+            calendar.appendChild(dayBox);
+        }
     }
+
+    loadCalendar(); // load current month automatically
 });
 
 // ================== GOOGLE MAP TOGGLE ==================
